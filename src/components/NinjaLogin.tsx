@@ -1,8 +1,10 @@
 import { useState } from "react";
-import { Search } from "lucide-react";
+import { Search, Trophy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { NinjaScoreboard } from "./NinjaScoreboard";
+import { mockNinjaData } from "@/data/mockData";
 import codeNinjasLogo from "@/assets/code-ninjas-logo.png";
 
 interface NinjaLoginProps {
@@ -11,6 +13,7 @@ interface NinjaLoginProps {
 
 export const NinjaLogin = ({ onLogin }: NinjaLoginProps) => {
   const [name, setName] = useState("");
+  const [showScoreboard, setShowScoreboard] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -74,6 +77,18 @@ export const NinjaLogin = ({ onLogin }: NinjaLoginProps) => {
           </CardContent>
         </Card>
 
+        {/* Scoreboard Button */}
+        <div className="text-center">
+          <Button 
+            variant="outline" 
+            onClick={() => setShowScoreboard(true)}
+            className="mb-4 border-ninja-purple/30 text-ninja-purple hover:bg-ninja-purple/10"
+          >
+            <Trophy className="h-4 w-4 mr-2" />
+            Scoreboard
+          </Button>
+        </div>
+
         {/* Decorative Elements */}
         <div className="text-center">
           <p className="text-sm text-muted-foreground">
@@ -81,6 +96,12 @@ export const NinjaLogin = ({ onLogin }: NinjaLoginProps) => {
           </p>
         </div>
       </div>
+
+      <NinjaScoreboard 
+        users={mockNinjaData.users}
+        open={showScoreboard}
+        onOpenChange={setShowScoreboard}
+      />
     </div>
   );
 };
