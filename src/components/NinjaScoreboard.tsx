@@ -1,5 +1,5 @@
 import { NinjaUser } from "@/types/ninja";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 import { Trophy, Medal, Award } from "lucide-react";
 
@@ -48,6 +48,9 @@ export const NinjaScoreboard = ({ users, open, onOpenChange }: NinjaScoreboardPr
             <Trophy className="h-6 w-6 text-ninja-gold" />
             Ninja Leaderboard
           </DialogTitle>
+          <DialogDescription>
+            Top 5 ninjas with the most Ninja Bucks
+          </DialogDescription>
         </DialogHeader>
         
         <div className="space-y-3">
