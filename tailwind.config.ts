@@ -52,6 +52,13 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				ninja: {
+					gold: 'hsl(var(--ninja-gold))',
+					silver: 'hsl(var(--ninja-silver))',
+					purple: 'hsl(var(--ninja-purple))',
+					dark: 'hsl(var(--ninja-dark))',
+					darker: 'hsl(var(--ninja-darker))'
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -84,11 +91,36 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-10px)' }
+				},
+				'coin-spin': {
+					'0%': { transform: 'rotateY(0deg)' },
+					'100%': { transform: 'rotateY(360deg)' }
+				},
+				'ninja-glow': {
+					'0%, 100%': { boxShadow: '0 0 20px hsl(var(--ninja-purple) / 0.5)' },
+					'50%': { boxShadow: '0 0 40px hsl(var(--ninja-purple) / 0.8)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'float': 'float 3s ease-in-out infinite',
+				'coin-spin': 'coin-spin 2s linear infinite',
+				'ninja-glow': 'ninja-glow 2s ease-in-out infinite'
+			},
+			backgroundImage: {
+				'gradient-ninja': 'var(--gradient-ninja)',
+				'gradient-gold': 'var(--gradient-gold)',
+				'gradient-card': 'var(--gradient-card)'
+			},
+			boxShadow: {
+				'ninja': 'var(--shadow-ninja)',
+				'gold': 'var(--shadow-gold)',
+				'elevated': 'var(--shadow-elevated)'
 			}
 		}
 	},
