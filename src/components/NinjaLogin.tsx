@@ -5,14 +5,15 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { NinjaScoreboard } from "./NinjaScoreboard";
 import { NinjaGrindGuide } from "./NinjaGrindGuide";
-import { mockNinjaData } from "@/data/mockData";
+import { NinjaData } from "@/types/ninja";
 import codeNinjasLogo from "@/assets/code-ninjas-logo.png";
 
 interface NinjaLoginProps {
   onLogin: (name: string) => void;
+  data: NinjaData;
 }
 
-export const NinjaLogin = ({ onLogin }: NinjaLoginProps) => {
+export const NinjaLogin = ({ onLogin, data }: NinjaLoginProps) => {
   const [name, setName] = useState("");
   const [showScoreboard, setShowScoreboard] = useState(false);
   const [showGrindGuide, setShowGrindGuide] = useState(false);
@@ -113,7 +114,7 @@ export const NinjaLogin = ({ onLogin }: NinjaLoginProps) => {
       </div>
 
       <NinjaScoreboard 
-        users={mockNinjaData.users}
+        users={data.users}
         open={showScoreboard}
         onOpenChange={setShowScoreboard}
       />
