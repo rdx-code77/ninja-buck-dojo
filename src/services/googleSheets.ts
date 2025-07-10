@@ -1,6 +1,6 @@
 import { NinjaData, NinjaUser, Prize } from "@/types/ninja";
 
-const GOOGLE_SHEETS_URL = "https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLgd01UFOHRqXtFYZHBLcL-FfJfid28fYi22CcDm19gd4KccJMmi5v4iNtAnqCaAj-Qoy0Sq-YcorWk5Lbo5Z_7sABUNkRJ9tz3EFW1zuZsx4MPW-5OPnQcIrkxYwgb_gTpLuKlA5W3ZvYhBrOMqxDUrnKb3MJrVHFeXrghyk0WVDJK97m-czG-aUR1KRIT912kGD7dcOncj6ghTTgWZavtvIIUPm9PIYioW8EACPs7SRQlGs6TdUCBnSg7tJMjbf9eW3-DZ8aMu4Y9k4RhC9SbabK8heg&lib=MVJToO7wUeDGVR-YK-AFn7vUpSJ62eWWl";
+const GOOGLE_SHEETS_URL = "https://script.google.com/macros/s/AKfycbzI4xVohltDb5BR6dnoERka7jRJingFubcYl9a6odBOt4g36kX-3iQB1nH0M_UUA7f1/exec";
 
 // Temporary sample data based on your format while Google Sheets is being fixed
 const sampleNinjaData = [
