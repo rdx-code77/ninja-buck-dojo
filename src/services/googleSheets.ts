@@ -4,6 +4,7 @@ const GOOGLE_SHEETS_URL = "https://script.googleusercontent.com/macros/echo?user
 
 export const fetchNinjaData = async (): Promise<NinjaData> => {
   try {
+    console.log("Fetching ninja data from:", GOOGLE_SHEETS_URL);
     const response = await fetch(GOOGLE_SHEETS_URL);
     
     if (!response.ok) {
@@ -11,29 +12,79 @@ export const fetchNinjaData = async (): Promise<NinjaData> => {
     }
     
     const data = await response.json();
+    console.log("Raw data received:", data);
     
-    // Transform the data to match our expected format
-    const users: NinjaUser[] = data.users?.map((user: any) => ({
-      id: user.id || String(Math.random()),
-      name: user.name || user.Name || "",
-      ninjaBucks: Number(user.ninjaBucks || user.NinjaBucks || user.ninja_bucks || 0),
-      rank: user.rank || user.Rank || "White Belt",
-    })) || [];
+    // Handle the actual data structure from your Google Sheets
+    let users: NinjaUser[] = [];
+    
+    if (Array.isArray(data)) {
+      // Data is directly an array of users
+      users = data.map((user: any, index: number) => ({
+        id: user.id || String(index + 1),
+        name: user.name || "",
+        ninjaBucks: Number(user.totalNinjaBucks || 0),
+        rank: user.latestRank || "White Belt",
+      }));
+    } else if (data.users && Array.isArray(data.users)) {
+      // Data has users property
+      users = data.users.map((user: any, index: number) => ({
+        id: user.id || String(index + 1),
+        name: user.name || "",
+        ninjaBucks: Number(user.totalNinjaBucks || user.ninjaBucks || 0),
+        rank: user.latestRank || user.rank || "White Belt",
+      }));
+    }
 
-    const prizes: Prize[] = data.prizes?.map((prize: any) => ({
-      id: prize.id || String(Math.random()),
-      name: prize.name || prize.Name || "",
-      description: prize.description || prize.Description || "",
-      cost: Number(prize.cost || prize.Cost || 0),
-      category: prize.category || prize.Category || "General",
-      inStock: prize.inStock !== false,
-    })) || [];
+    // Default prizes since they're not in your data
+    const prizes: Prize[] = [
+      {
+        id: "1",
+        name: "Ninja Stickers Pack",
+        description: "Cool ninja-themed stickers for your laptop",
+        cost: 50,
+        category: "Accessories",
+        inStock: true,
+      },
+      {
+        id: "2",
+        name: "Code Ninjas T-Shirt",
+        description: "Official Code Ninjas t-shirt",
+        cost: 100,
+        category: "Clothing",
+        inStock: true,
+      },
+      {
+        id: "3",
+        name: "Programming Book",
+        description: "Learn advanced coding techniques",
+        cost: 150,
+        category: "Education",
+        inStock: true,
+      },
+      {
+        id: "4",
+        name: "Gaming Mouse",
+        description: "High-performance gaming mouse",
+        cost: 200,
+        category: "Tech",
+        inStock: true,
+      },
+      {
+        id: "5",
+        name: "VIP Coding Session",
+        description: "One-on-one mentoring session",
+        cost: 400,
+        category: "Experience",
+        inStock: true,
+      },
+    ];
 
+    console.log("Processed users:", users);
     return { users, prizes };
   } catch (error) {
     console.error("Error fetching ninja data:", error);
     
-    // Fallback to basic structure if fetch fails
+    // Return empty data on error
     return {
       users: [],
       prizes: []
