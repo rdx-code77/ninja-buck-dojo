@@ -125,9 +125,9 @@ export const NinjaAnalytics = ({ users, onClose }: NinjaAnalyticsProps) => {
   const topNinja = chartData[0];
 
   return (
-    <div className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50">
+    <div className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50 overflow-auto">
       <div className="min-h-screen p-4">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="flex justify-between items-center mb-6">
             <div>
