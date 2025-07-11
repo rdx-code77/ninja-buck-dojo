@@ -44,13 +44,14 @@ export const NinjaDashboard = ({ user, prizes, onLogout }: NinjaDashboardProps) 
         {/* Balance Card */}
         <Card className="bg-gradient-card border-border shadow-ninja animate-bounce-in">
           <CardHeader className="text-center">
-            <CardTitle className="text-2xl text-foreground flex items-center justify-center gap-2 animate-slide-up" style={{animationDelay: '0.2s', animationFillMode: 'both'}}>
-              <Coins className="w-8 h-8 text-ninja-gold animate-coin-spin hover:animate-wiggle" />
+            <CardTitle className="text-2xl text-foreground flex items-center justify-center gap-2 animate-ninja-stealth" style={{animationDelay: '0.2s', animationFillMode: 'both'}}>
+              <Coins className="w-8 h-8 text-ninja-gold animate-coin-spin hover:animate-ninja-glow" style={{filter: 'drop-shadow(0 0 8px hsl(var(--ninja-gold) / 0.6))'}} />
               Your Ninja Bucks
             </CardTitle>
           </CardHeader>
           <CardContent className="text-center">
-            <div className="text-6xl font-bold bg-gradient-gold bg-clip-text text-transparent mb-2 animate-ninja-entrance" style={{animationDelay: '0.4s', animationFillMode: 'both'}}>
+            <div className="text-6xl font-bold bg-gradient-gold bg-clip-text text-transparent mb-2 animate-ninja-shuriken-spin" 
+                 style={{animationDelay: '0.4s', animationFillMode: 'both', filter: 'drop-shadow(0 0 10px hsl(var(--ninja-gold) / 0.8))'}}>
               {user.ninjaBucks}
             </div>
             <p className="text-muted-foreground animate-fade-in-scale" style={{animationDelay: '0.6s', animationFillMode: 'both'}}>Keep coding to earn more!</p>

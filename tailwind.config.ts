@@ -169,6 +169,57 @@ export default {
 						opacity: '1',
 						transform: 'scale(1) rotate(0deg) translateY(0px)'
 					}
+				},
+				'ninja-stealth': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateX(-100px) scale(0.8)',
+						filter: 'blur(10px)'
+					},
+					'50%': {
+						opacity: '0.7',
+						transform: 'translateX(10px) scale(1.05)',
+						filter: 'blur(2px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateX(0px) scale(1)',
+						filter: 'blur(0px)'
+					}
+				},
+				'ninja-shadow-drop': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(-50px) scale(0.5)',
+						filter: 'drop-shadow(0 0 0 transparent)'
+					},
+					'50%': {
+						opacity: '0.8',
+						transform: 'translateY(5px) scale(1.1)',
+						filter: 'drop-shadow(0 10px 20px hsl(var(--ninja-purple) / 0.5))'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0px) scale(1)',
+						filter: 'drop-shadow(0 5px 15px hsl(var(--ninja-purple) / 0.3))'
+					}
+				},
+				'ninja-shuriken-spin': {
+					'0%': {
+						opacity: '0',
+						transform: 'rotate(0deg) scale(0.3)',
+						boxShadow: '0 0 0 0 hsl(var(--ninja-gold) / 0)'
+					},
+					'50%': {
+						opacity: '1',
+						transform: 'rotate(180deg) scale(1.2)',
+						boxShadow: '0 0 30px 10px hsl(var(--ninja-gold) / 0.4)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'rotate(360deg) scale(1)',
+						boxShadow: '0 0 20px 5px hsl(var(--ninja-gold) / 0.6)'
+					}
 				}
 			},
 			animation: {
@@ -182,7 +233,10 @@ export default {
 				'fade-in-scale': 'fade-in-scale 0.5s ease-out',
 				'wiggle': 'wiggle 1s ease-in-out infinite',
 				'pulse-glow': 'pulse-glow 2s infinite',
-				'ninja-entrance': 'ninja-entrance 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275)'
+				'ninja-entrance': 'ninja-entrance 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+				'ninja-stealth': 'ninja-stealth 1s ease-out',
+				'ninja-shadow-drop': 'ninja-shadow-drop 0.8s ease-out',
+				'ninja-shuriken-spin': 'ninja-shuriken-spin 1.5s ease-out'
 			},
 			backgroundImage: {
 				'gradient-ninja': 'var(--gradient-ninja)',

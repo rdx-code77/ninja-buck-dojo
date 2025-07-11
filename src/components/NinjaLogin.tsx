@@ -58,11 +58,13 @@ export const NinjaLogin = ({ onLogin, data }: NinjaLoginProps) => {
               <img 
                 src={codeNinjasLogo} 
                 alt="Code Ninjas" 
-                className="h-32 w-auto animate-ninja-entrance hover:animate-wiggle"
+                className="h-32 w-auto animate-ninja-stealth hover:animate-ninja-shadow-drop transition-all duration-300"
+                style={{filter: 'drop-shadow(0 5px 15px hsl(var(--ninja-purple) / 0.4))'}}
               />
             </div>
             <div className="space-y-2">
-              <h1 className="text-4xl font-bold bg-gradient-ninja bg-clip-text text-transparent animate-bounce-in">
+              <h1 className="text-4xl font-bold bg-gradient-ninja bg-clip-text text-transparent animate-ninja-shadow-drop" 
+                  style={{textShadow: '0 0 20px hsl(var(--ninja-purple) / 0.5)'}}>
                 Ninja Bucks
               </h1>
               <p className="text-muted-foreground text-lg animate-slide-up" style={{animationDelay: '0.3s', animationFillMode: 'both'}}>
