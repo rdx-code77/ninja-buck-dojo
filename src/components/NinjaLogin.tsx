@@ -97,8 +97,7 @@ export const NinjaLogin = ({ onLogin, data }: NinjaLoginProps) => {
                 <Button 
                   type="submit" 
                   variant="ninja" 
-                  className="w-full animate-slide-up hover:animate-pulse-glow transition-all duration-300 hover:scale-105"
-                  style={{animationDelay: '1s', animationFillMode: 'both'}}
+                  className="w-full"
                   disabled={!name.trim()}
                 >
                   Access My Ninja Bucks
