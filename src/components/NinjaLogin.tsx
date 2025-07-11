@@ -58,44 +58,45 @@ export const NinjaLogin = ({ onLogin, data }: NinjaLoginProps) => {
               <img 
                 src={codeNinjasLogo} 
                 alt="Code Ninjas" 
-                className="h-32 w-auto animate-float"
+                className="h-32 w-auto animate-ninja-entrance hover:animate-wiggle"
               />
             </div>
             <div className="space-y-2">
-              <h1 className="text-4xl font-bold bg-gradient-ninja bg-clip-text text-transparent">
+              <h1 className="text-4xl font-bold bg-gradient-ninja bg-clip-text text-transparent animate-bounce-in">
                 Ninja Bucks
               </h1>
-              <p className="text-muted-foreground text-lg">
+              <p className="text-muted-foreground text-lg animate-slide-up" style={{animationDelay: '0.3s', animationFillMode: 'both'}}>
                 Check your balance and see what you can earn!
               </p>
             </div>
           </div>
 
           {/* Login Card */}
-          <Card className="bg-gradient-card border-border shadow-elevated">
+          <Card className="bg-gradient-card border-border shadow-elevated animate-fade-in-scale" style={{animationDelay: '0.5s', animationFillMode: 'both'}}>
             <CardHeader className="text-center">
-              <CardTitle className="text-2xl text-foreground">Enter Your Name</CardTitle>
-              <CardDescription className="text-muted-foreground">
+              <CardTitle className="text-2xl text-foreground animate-slide-up" style={{animationDelay: '0.7s', animationFillMode: 'both'}}>Enter Your Name</CardTitle>
+              <CardDescription className="text-muted-foreground animate-slide-up" style={{animationDelay: '0.8s', animationFillMode: 'both'}}>
                 Type your name to access your Ninja Bucks account
               </CardDescription>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="relative">
+                <div className="relative animate-slide-up" style={{animationDelay: '0.9s', animationFillMode: 'both'}}>
                   <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                   <Input
                     type="text"
                     placeholder="Enter your name..."
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="pl-10 bg-background border-border text-foreground placeholder:text-muted-foreground"
+                    className="pl-10 bg-background border-border text-foreground placeholder:text-muted-foreground focus:animate-pulse-glow transition-all duration-300 hover:scale-105"
                     autoFocus
                   />
                 </div>
                 <Button 
                   type="submit" 
                   variant="ninja" 
-                  className="w-full"
+                  className="w-full animate-slide-up hover:animate-pulse-glow transition-all duration-300 hover:scale-105"
+                  style={{animationDelay: '1s', animationFillMode: 'both'}}
                   disabled={!name.trim()}
                 >
                   Access My Ninja Bucks

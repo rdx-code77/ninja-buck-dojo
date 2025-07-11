@@ -103,6 +103,72 @@ export default {
 				'ninja-glow': {
 					'0%, 100%': { boxShadow: '0 0 20px hsl(var(--ninja-purple) / 0.5)' },
 					'50%': { boxShadow: '0 0 40px hsl(var(--ninja-purple) / 0.8)' }
+				},
+				'bounce-in': {
+					'0%': { 
+						opacity: '0', 
+						transform: 'scale(0.3) translateY(100px)' 
+					},
+					'50%': { 
+						opacity: '1', 
+						transform: 'scale(1.05) translateY(-10px)' 
+					},
+					'70%': { 
+						transform: 'scale(0.9) translateY(0px)' 
+					},
+					'100%': { 
+						opacity: '1', 
+						transform: 'scale(1) translateY(0px)' 
+					}
+				},
+				'slide-up': {
+					'0%': { 
+						opacity: '0', 
+						transform: 'translateY(50px)' 
+					},
+					'100%': { 
+						opacity: '1', 
+						transform: 'translateY(0px)' 
+					}
+				},
+				'fade-in-scale': {
+					'0%': { 
+						opacity: '0', 
+						transform: 'scale(0.8)' 
+					},
+					'100%': { 
+						opacity: '1', 
+						transform: 'scale(1)' 
+					}
+				},
+				'wiggle': {
+					'0%, 100%': { transform: 'rotate(-3deg)' },
+					'50%': { transform: 'rotate(3deg)' }
+				},
+				'pulse-glow': {
+					'0%': { 
+						boxShadow: '0 0 0 0 hsl(var(--ninja-gold) / 0.7)' 
+					},
+					'70%': { 
+						boxShadow: '0 0 0 20px hsl(var(--ninja-gold) / 0)' 
+					},
+					'100%': { 
+						boxShadow: '0 0 0 0 hsl(var(--ninja-gold) / 0)' 
+					}
+				},
+				'ninja-entrance': {
+					'0%': {
+						opacity: '0',
+						transform: 'scale(0.3) rotate(-180deg) translateY(100px)'
+					},
+					'50%': {
+						opacity: '1',
+						transform: 'scale(1.1) rotate(-90deg) translateY(-20px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'scale(1) rotate(0deg) translateY(0px)'
+					}
 				}
 			},
 			animation: {
@@ -110,7 +176,13 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'float': 'float 3s ease-in-out infinite',
 				'coin-spin': 'coin-spin 2s linear infinite',
-				'ninja-glow': 'ninja-glow 2s ease-in-out infinite'
+				'ninja-glow': 'ninja-glow 2s ease-in-out infinite',
+				'bounce-in': 'bounce-in 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+				'slide-up': 'slide-up 0.6s ease-out',
+				'fade-in-scale': 'fade-in-scale 0.5s ease-out',
+				'wiggle': 'wiggle 1s ease-in-out infinite',
+				'pulse-glow': 'pulse-glow 2s infinite',
+				'ninja-entrance': 'ninja-entrance 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275)'
 			},
 			backgroundImage: {
 				'gradient-ninja': 'var(--gradient-ninja)',

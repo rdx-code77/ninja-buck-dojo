@@ -42,25 +42,25 @@ export const NinjaDashboard = ({ user, prizes, onLogout }: NinjaDashboardProps) 
 
       <div className="container mx-auto px-4 py-8 space-y-8">
         {/* Balance Card */}
-        <Card className="bg-gradient-card border-border shadow-ninja">
+        <Card className="bg-gradient-card border-border shadow-ninja animate-bounce-in">
           <CardHeader className="text-center">
-            <CardTitle className="text-2xl text-foreground flex items-center justify-center gap-2">
-              <Coins className="w-8 h-8 text-ninja-gold animate-coin-spin" />
+            <CardTitle className="text-2xl text-foreground flex items-center justify-center gap-2 animate-slide-up" style={{animationDelay: '0.2s', animationFillMode: 'both'}}>
+              <Coins className="w-8 h-8 text-ninja-gold animate-coin-spin hover:animate-wiggle" />
               Your Ninja Bucks
             </CardTitle>
           </CardHeader>
           <CardContent className="text-center">
-            <div className="text-6xl font-bold bg-gradient-gold bg-clip-text text-transparent mb-2">
+            <div className="text-6xl font-bold bg-gradient-gold bg-clip-text text-transparent mb-2 animate-ninja-entrance" style={{animationDelay: '0.4s', animationFillMode: 'both'}}>
               {user.ninjaBucks}
             </div>
-            <p className="text-muted-foreground">Keep coding to earn more!</p>
+            <p className="text-muted-foreground animate-fade-in-scale" style={{animationDelay: '0.6s', animationFillMode: 'both'}}>Keep coding to earn more!</p>
           </CardContent>
         </Card>
 
         {/* Prizes Section */}
-        <div className="space-y-6">
+        <div className="space-y-6 animate-slide-up" style={{animationDelay: '0.8s', animationFillMode: 'both'}}>
           <div className="flex items-center gap-2">
-            <ShoppingBag className="w-6 h-6 text-primary" />
+            <ShoppingBag className="w-6 h-6 text-primary animate-wiggle" />
             <h2 className="text-2xl font-bold text-foreground">Ninja Store</h2>
           </div>
 
