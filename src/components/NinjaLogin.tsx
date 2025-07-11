@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Search, Trophy, Zap } from "lucide-react";
+import { Search, Trophy, Zap, BarChart3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { NinjaScoreboard } from "./NinjaScoreboard";
 import { NinjaGrindGuide } from "./NinjaGrindGuide";
+import { NinjaAnalytics } from "./NinjaAnalytics";
 import { NinjaData } from "@/types/ninja";
 import codeNinjasLogo from "@/assets/code-ninjas-logo.png";
 
@@ -17,6 +18,7 @@ export const NinjaLogin = ({ onLogin, data }: NinjaLoginProps) => {
   const [name, setName] = useState("");
   const [showScoreboard, setShowScoreboard] = useState(false);
   const [showGrindGuide, setShowGrindGuide] = useState(false);
+  const [showAnalytics, setShowAnalytics] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,6 +29,19 @@ export const NinjaLogin = ({ onLogin, data }: NinjaLoginProps) => {
 
   return (
     <div className="min-h-screen bg-background relative">
+      {/* Dashboard Button - Left Side */}
+      <div className="absolute top-4 left-4 z-10">
+        <Button 
+          variant="outline" 
+          size="sm"
+          onClick={() => setShowAnalytics(true)}
+          className="border-primary/30 text-primary hover:bg-primary/10"
+        >
+          <BarChart3 className="h-4 w-4 mr-2" />
+          Analytics Dashboard
+        </Button>
+      </div>
+
       {/* Top Right Navigation */}
       <div className="absolute top-4 right-4 flex gap-2 z-10">
         <Button 
@@ -125,6 +140,13 @@ export const NinjaLogin = ({ onLogin, data }: NinjaLoginProps) => {
         open={showGrindGuide}
         onOpenChange={setShowGrindGuide}
       />
+      
+      {showAnalytics && (
+        <NinjaAnalytics 
+          users={data.users}
+          onClose={() => setShowAnalytics(false)}
+        />
+      )}
     </div>
   );
 };
