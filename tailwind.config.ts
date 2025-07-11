@@ -207,17 +207,17 @@ export default {
 				'ninja-shuriken-spin': {
 					'0%': {
 						opacity: '0',
-						transform: 'rotate(0deg) scale(0.3)',
+						transform: 'scale(0.3)',
 						boxShadow: '0 0 0 0 hsl(var(--ninja-gold) / 0)'
 					},
 					'50%': {
 						opacity: '1',
-						transform: 'rotate(180deg) scale(1.2)',
+						transform: 'scale(1.2)',
 						boxShadow: '0 0 30px 10px hsl(var(--ninja-gold) / 0.4)'
 					},
 					'100%': {
 						opacity: '1',
-						transform: 'rotate(360deg) scale(1)',
+						transform: 'scale(1)',
 						boxShadow: '0 0 20px 5px hsl(var(--ninja-gold) / 0.6)'
 					}
 				}
