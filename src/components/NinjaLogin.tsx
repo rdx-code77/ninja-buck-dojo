@@ -45,47 +45,56 @@ export const NinjaLogin = ({ onLogin, data }: NinjaLoginProps) => {
         ))}
       </div>
 
-      {/* Top Navigation - Mobile Responsive */}
-      <div className="absolute top-4 left-4 right-4 z-10">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
-          {/* Analytics Button - Left */}
+      {/* Dashboard Button - Left Side */}
+      <div className="absolute top-4 left-4 z-10">
+        <Button 
+          variant="friendly" 
+          size="sm"
+          onClick={() => setShowAnalytics(true)}
+          className="backdrop-blur-sm hidden sm:flex"
+        >
+          <BarChart3 className="h-4 w-4 mr-2" />
+          Analytics Hub
+        </Button>
+      </div>
+
+      {/* Top Right Navigation - Stacked on Mobile */}
+      <div className="absolute top-4 right-4 z-10">
+        <div className="flex flex-col sm:flex-row gap-2">
+          {/* Mobile: Show Analytics first, then other buttons */}
           <Button 
             variant="friendly" 
             size="sm"
             onClick={() => setShowAnalytics(true)}
-            className="backdrop-blur-sm w-full sm:w-auto"
+            className="backdrop-blur-sm sm:hidden w-full"
           >
             <BarChart3 className="h-4 w-4 mr-2" />
-            Analytics Hub
+            Analytics
           </Button>
-
-          {/* Right Navigation */}
-          <div className="flex gap-2 w-full sm:w-auto">
-            <Button 
-              variant="purple" 
-              size="sm"
-              onClick={() => setShowScoreboard(true)}
-              className="backdrop-blur-sm flex-1 sm:flex-none"
-            >
-              <Trophy className="h-4 w-4 mr-2" />
-              <span className="hidden xs:inline">Leaderboard</span>
-              <span className="xs:hidden">Board</span>
-            </Button>
-            <Button 
-              variant="ninja" 
-              size="sm"
-              onClick={() => setShowGrindGuide(true)}
-              className="backdrop-blur-sm flex-1 sm:flex-none"
-            >
-              <Zap className="h-4 w-4 mr-2" />
-              Training
-            </Button>
-          </div>
+          <Button 
+            variant="purple" 
+            size="sm"
+            onClick={() => setShowScoreboard(true)}
+            className="backdrop-blur-sm w-full sm:w-auto"
+          >
+            <Trophy className="h-4 w-4 mr-2" />
+            <span className="hidden xs:inline">Leaderboard</span>
+            <span className="xs:hidden">Board</span>
+          </Button>
+          <Button 
+            variant="ninja" 
+            size="sm"
+            onClick={() => setShowGrindGuide(true)}
+            className="backdrop-blur-sm w-full sm:w-auto"
+          >
+            <Zap className="h-4 w-4 mr-2" />
+            Training
+          </Button>
         </div>
       </div>
 
-      {/* Main Content - Adjusted top padding for mobile */}
-      <div className="flex items-center justify-center min-h-screen p-4 pt-24 sm:pt-4">
+      {/* Main Content - Adjusted top padding for mobile buttons */}
+      <div className="flex items-center justify-center min-h-screen p-4 pt-32 sm:pt-4">
         <div className="w-full max-w-md space-y-8">
           {/* Logo Section */}
           <div className="text-center space-y-4">
