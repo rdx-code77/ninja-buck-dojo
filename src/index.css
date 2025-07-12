@@ -8,64 +8,69 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Friendly Ninja Theme - Purple & Dark Blue */
-    --background: 240 15% 8%;
-    --foreground: 240 20% 95%;
+    /* Code Ninjas Dark Theme */
+    --background: 240 10% 8%;
+    --foreground: 60 100% 95%;
 
-    --card: 240 12% 12%;
-    --card-foreground: 240 20% 95%;
+    --card: 240 8% 12%;
+    --card-foreground: 60 100% 95%;
 
-    --popover: 240 12% 12%;
-    --popover-foreground: 240 20% 95%;
+    --popover: 240 8% 12%;
+    --popover-foreground: 60 100% 95%;
 
     --primary: 271 76% 53%;
-    --primary-foreground: 240 20% 95%;
+    --primary-foreground: 60 100% 95%;
 
-    --secondary: 220 30% 18%;
-    --secondary-foreground: 240 20% 95%;
+    --secondary: 240 6% 18%;
+    --secondary-foreground: 60 100% 95%;
 
-    --muted: 220 30% 18%;
-    --muted-foreground: 240 15% 65%;
+    --muted: 240 6% 18%;
+    --muted-foreground: 240 5% 64%;
 
-    --accent: 260 100% 70%;
-    --accent-foreground: 240 15% 8%;
+    --accent: 45 100% 70%;
+    --accent-foreground: 240 10% 8%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 240 20% 95%;
+    --destructive-foreground: 60 100% 95%;
 
-    --border: 220 30% 25%;
-    --input: 220 30% 18%;
+    --border: 240 6% 18%;
+    --input: 240 6% 18%;
     --ring: 271 76% 53%;
 
-    /* Friendly Ninja Colors */
+    /* Ninja-specific colors */
+    --ninja-gold: 45 100% 70%;
+    --ninja-silver: 0 0% 75%;
     --ninja-purple: 271 76% 53%;
-    --ninja-blue: 220 80% 45%;
-    --ninja-light-purple: 280 70% 70%;
-    --ninja-dark-blue: 220 50% 20%;
-    --ninja-accent: 260 100% 70%;
+    --ninja-dark: 240 10% 8%;
+    --ninja-darker: 240 15% 4%;
     
-    /* Friendly gradients */
-    --gradient-ninja: linear-gradient(135deg, hsl(271 76% 53%), hsl(220 80% 45%));
-    --gradient-friendly: linear-gradient(135deg, hsl(260 100% 70%), hsl(280 70% 70%));
-    --gradient-card: linear-gradient(145deg, hsl(240 12% 12%), hsl(220 30% 15%));
-    --gradient-subtle: linear-gradient(90deg, transparent, hsl(271 76% 53% / 0.2), transparent);
+    /* Gradients */
+    --gradient-ninja: linear-gradient(135deg, hsl(271 76% 53%), hsl(280 100% 60%));
+    --gradient-gold: linear-gradient(135deg, hsl(45 100% 70%), hsl(38 100% 60%));
+    --gradient-card: linear-gradient(145deg, hsl(240 8% 12%), hsl(240 6% 8%));
     
-    /* Soft shadows and glows */
-    --shadow-ninja: 0 8px 25px hsl(271 76% 53% / 0.25);
-    --shadow-friendly: 0 5px 15px hsl(260 100% 70% / 0.3);
-    --shadow-elevated: 0 15px 35px hsl(240 15% 8% / 0.6);
-    --glow-soft: 0 0 20px hsl(271 76% 53% / 0.4);
+    /* Shadows */
+    --shadow-ninja: 0 10px 30px -10px hsl(271 76% 53% / 0.3);
+    --shadow-gold: 0 5px 20px -5px hsl(45 100% 70% / 0.4);
+    --shadow-elevated: 0 20px 40px -10px hsl(240 10% 8% / 0.8);
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    --sidebar-background: 240 12% 12%;
-    --sidebar-foreground: 240 20% 95%;
-    --sidebar-primary: 271 76% 53%;
-    --sidebar-primary-foreground: 240 20% 95%;
-    --sidebar-accent: 220 30% 18%;
-    --sidebar-accent-foreground: 240 20% 95%;
-    --sidebar-border: 220 30% 25%;
-    --sidebar-ring: 271 76% 53%;
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
@@ -105,56 +110,14 @@ All colors MUST be HSL.
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+}
 
+@layer base {
   * {
     @apply border-border;
   }
 
   body {
     @apply bg-background text-foreground;
-    background-image: 
-      radial-gradient(circle at 20% 50%, hsl(271 76% 53% / 0.08) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, hsl(220 80% 45% / 0.08) 0%, transparent 50%),
-      radial-gradient(circle at 40% 80%, hsl(260 100% 70% / 0.05) 0%, transparent 50%);
   }
 }
-
-/* Friendly animations */
-@keyframes gentle-float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-10px) rotate(2deg); }
-}
-
-@keyframes gentle-glow {
-  0%, 100% { box-shadow: 0 0 5px hsl(var(--ninja-purple) / 0.3); }
-  50% { box-shadow: 0 0 15px hsl(var(--ninja-purple) / 0.5), 0 0 25px hsl(var(--ninja-accent) / 0.3); }
-}
-
-@keyframes bounce-gentle {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-}
-
-@keyframes slide-up {
-  0% { transform: translateY(20px); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes fade-in-scale {
-  0% { transform: scale(0.95); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
-}
-
-.animate-gentle-float { animation: gentle-float 3s ease-in-out infinite; }
-.animate-gentle-glow { animation: gentle-glow 2s ease-in-out infinite; }
-.animate-bounce-gentle { animation: bounce-gentle 1s ease-in-out infinite; }
-.animate-slide-up { animation: slide-up 0.5s ease-out forwards; }
-.animate-fade-in-scale { animation: fade-in-scale 0.4s ease-out forwards; }
-
-/* Utility classes for friendly theme */
-.bg-gradient-ninja { background: var(--gradient-ninja); }
-.bg-gradient-friendly { background: var(--gradient-friendly); }
-.bg-gradient-card { background: var(--gradient-card); }
-.shadow-ninja { box-shadow: var(--shadow-ninja); }
-.shadow-friendly { box-shadow: var(--shadow-friendly); }
-.glow-soft { box-shadow: var(--glow-soft); }

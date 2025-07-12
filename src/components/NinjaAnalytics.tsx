@@ -4,19 +4,17 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { NinjaUser } from "@/types/ninja";
-import { BarChart3, PieChart as PieChartIcon, TrendingUp, Radar as RadarIcon, Activity, X, Sun, Moon } from "lucide-react";
-import { useTheme } from "next-themes";
+import { BarChart3, PieChart as PieChartIcon, TrendingUp, Radar as RadarIcon, Activity, X } from "lucide-react";
 
 interface NinjaAnalyticsProps {
   users: NinjaUser[];
   onClose: () => void;
 }
 
-const COLORS = ['hsl(var(--ninja-purple))', 'hsl(var(--ninja-blue))', 'hsl(var(--ninja-accent))', 'hsl(var(--ninja-light-purple))', 'hsl(var(--primary))'];
+const COLORS = ['hsl(var(--ninja-gold))', 'hsl(var(--primary))', 'hsl(var(--accent))', 'hsl(var(--secondary))', 'hsl(var(--muted))'];
 
 export const NinjaAnalytics = ({ users, onClose }: NinjaAnalyticsProps) => {
   const [activeChart, setActiveChart] = useState<'bar' | 'pie' | 'line' | 'radar' | 'area'>('bar');
-  const { theme, setTheme } = useTheme();
 
   // Prepare data for charts
   const chartData = users.map((user, index) => ({
@@ -48,7 +46,7 @@ export const NinjaAnalytics = ({ users, onClose }: NinjaAnalyticsProps) => {
               <YAxis />
               <Tooltip />
               <Legend />
-              <Bar dataKey="ninjaBucks" fill="hsl(var(--ninja-purple))" />
+              <Bar dataKey="ninjaBucks" fill="hsl(var(--ninja-gold))" />
             </BarChart>
           </ResponsiveContainer>
         );
@@ -85,7 +83,7 @@ export const NinjaAnalytics = ({ users, onClose }: NinjaAnalyticsProps) => {
               <YAxis />
               <Tooltip />
               <Legend />
-              <Line type="monotone" dataKey="ninjaBucks" stroke="hsl(var(--ninja-purple))" strokeWidth={3} />
+              <Line type="monotone" dataKey="ninjaBucks" stroke="hsl(var(--ninja-gold))" strokeWidth={3} />
             </LineChart>
           </ResponsiveContainer>
         );
@@ -97,7 +95,7 @@ export const NinjaAnalytics = ({ users, onClose }: NinjaAnalyticsProps) => {
               <PolarGrid />
               <PolarAngleAxis dataKey="name" />
               <PolarRadiusAxis angle={90} domain={[0, Math.max(...topPerformers.map(p => p.ninjaBucks))]} />
-              <Radar name="Ninja Bucks" dataKey="ninjaBucks" stroke="hsl(var(--ninja-purple))" fill="hsl(var(--ninja-purple))" fillOpacity={0.3} />
+              <Radar name="Ninja Bucks" dataKey="ninjaBucks" stroke="hsl(var(--ninja-gold))" fill="hsl(var(--ninja-gold))" fillOpacity={0.3} />
               <Tooltip />
             </RadarChart>
           </ResponsiveContainer>
@@ -112,7 +110,7 @@ export const NinjaAnalytics = ({ users, onClose }: NinjaAnalyticsProps) => {
               <YAxis />
               <Tooltip />
               <Legend />
-              <Area type="monotone" dataKey="ninjaBucks" stroke="hsl(var(--ninja-purple))" fill="hsl(var(--ninja-purple))" fillOpacity={0.3} />
+              <Area type="monotone" dataKey="ninjaBucks" stroke="hsl(var(--ninja-gold))" fill="hsl(var(--ninja-gold))" fillOpacity={0.3} />
             </AreaChart>
           </ResponsiveContainer>
         );
@@ -127,46 +125,21 @@ export const NinjaAnalytics = ({ users, onClose }: NinjaAnalyticsProps) => {
   const topNinja = chartData[0];
 
   return (
-    <div className="fixed inset-0 bg-background/95 backdrop-blur-sm z-50 overflow-auto">
-      {/* Friendly floating elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(8)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-2 h-2 bg-gradient-friendly rounded-full opacity-15 animate-gentle-float"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 4}s`,
-              animationDuration: `${5 + Math.random() * 2}s`
-            }}
-          />
-        ))}
-      </div>
+    <div className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50 overflow-auto">
       <div className="min-h-screen p-4">
-        <div className="max-w-6xl mx-auto relative">
+        <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="flex justify-between items-center mb-6">
             <div>
-              <h1 className="text-3xl font-bold text-primary">
+              <h1 className="text-3xl font-bold bg-gradient-ninja bg-clip-text text-transparent">
                 Ninja Analytics Dashboard
               </h1>
-              <p className="text-muted-foreground">Track your amazing progress and achievements! 🎯</p>
+              <p className="text-muted-foreground">Track and analyze ninja performance</p>
             </div>
-            <div className="flex gap-2">
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="hover:bg-accent hover:text-accent-foreground"
-              >
-                {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-              </Button>
-              <Button variant="outline" onClick={onClose}>
-                <X className="w-4 h-4 mr-2" />
-                Close Dashboard
-              </Button>
-            </div>
+            <Button variant="outline" onClick={onClose}>
+              <X className="w-4 h-4 mr-2" />
+              Close Dashboard
+            </Button>
           </div>
 
           {/* Stats Cards */}
@@ -266,7 +239,7 @@ export const NinjaAnalytics = ({ users, onClose }: NinjaAnalyticsProps) => {
                         <p className="text-sm text-muted-foreground">{user.rank}</p>
                       </div>
                     </div>
-                    <Badge variant="outline" className="bg-ninja-purple/20 text-ninja-purple border-ninja-purple/30">
+                    <Badge variant="outline" className="bg-ninja-gold text-ninja-dark">
                       {user.ninjaBucks} bucks
                     </Badge>
                   </div>

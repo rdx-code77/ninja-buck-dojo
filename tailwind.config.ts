@@ -14,7 +14,6 @@ export default {
 			center: true,
 			padding: '2rem',
 			screens: {
-				'xs': '475px',
 				'2xl': '1400px'
 			}
 		},
@@ -54,16 +53,11 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				ninja: {
+					gold: 'hsl(var(--ninja-gold))',
+					silver: 'hsl(var(--ninja-silver))',
 					purple: 'hsl(var(--ninja-purple))',
-					blue: 'hsl(var(--ninja-blue))',
-					'light-purple': 'hsl(var(--ninja-light-purple))',
-					'dark-blue': 'hsl(var(--ninja-dark-blue))',
-					accent: 'hsl(var(--ninja-accent))',
-					// Legacy support
-					gold: 'hsl(var(--ninja-purple))',
-					silver: 'hsl(var(--ninja-light-purple))',
-					dark: 'hsl(var(--ninja-dark-blue))',
-					darker: 'hsl(var(--ninja-dark-blue))'
+					dark: 'hsl(var(--ninja-dark))',
+					darker: 'hsl(var(--ninja-darker))'
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
