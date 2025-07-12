@@ -12,7 +12,7 @@ interface NinjaAnalyticsProps {
   onClose: () => void;
 }
 
-const COLORS = ['hsl(var(--ninja-gold))', 'hsl(var(--primary))', 'hsl(var(--accent))', 'hsl(var(--secondary))', 'hsl(var(--muted))'];
+const COLORS = ['hsl(var(--ninja-matrix))', 'hsl(var(--ninja-accent))', 'hsl(var(--ninja-matrix-dark))', 'hsl(var(--ninja-matrix-light))', 'hsl(var(--primary))'];
 
 export const NinjaAnalytics = ({ users, onClose }: NinjaAnalyticsProps) => {
   const [activeChart, setActiveChart] = useState<'bar' | 'pie' | 'line' | 'radar' | 'area'>('bar');
@@ -48,7 +48,7 @@ export const NinjaAnalytics = ({ users, onClose }: NinjaAnalyticsProps) => {
               <YAxis />
               <Tooltip />
               <Legend />
-              <Bar dataKey="ninjaBucks" fill="hsl(var(--ninja-gold))" />
+              <Bar dataKey="ninjaBucks" fill="hsl(var(--ninja-matrix))" />
             </BarChart>
           </ResponsiveContainer>
         );
@@ -85,7 +85,7 @@ export const NinjaAnalytics = ({ users, onClose }: NinjaAnalyticsProps) => {
               <YAxis />
               <Tooltip />
               <Legend />
-              <Line type="monotone" dataKey="ninjaBucks" stroke="hsl(var(--ninja-gold))" strokeWidth={3} />
+              <Line type="monotone" dataKey="ninjaBucks" stroke="hsl(var(--ninja-matrix))" strokeWidth={3} />
             </LineChart>
           </ResponsiveContainer>
         );
@@ -97,7 +97,7 @@ export const NinjaAnalytics = ({ users, onClose }: NinjaAnalyticsProps) => {
               <PolarGrid />
               <PolarAngleAxis dataKey="name" />
               <PolarRadiusAxis angle={90} domain={[0, Math.max(...topPerformers.map(p => p.ninjaBucks))]} />
-              <Radar name="Ninja Bucks" dataKey="ninjaBucks" stroke="hsl(var(--ninja-gold))" fill="hsl(var(--ninja-gold))" fillOpacity={0.3} />
+              <Radar name="Ninja Bucks" dataKey="ninjaBucks" stroke="hsl(var(--ninja-matrix))" fill="hsl(var(--ninja-matrix))" fillOpacity={0.3} />
               <Tooltip />
             </RadarChart>
           </ResponsiveContainer>
@@ -112,7 +112,7 @@ export const NinjaAnalytics = ({ users, onClose }: NinjaAnalyticsProps) => {
               <YAxis />
               <Tooltip />
               <Legend />
-              <Area type="monotone" dataKey="ninjaBucks" stroke="hsl(var(--ninja-gold))" fill="hsl(var(--ninja-gold))" fillOpacity={0.3} />
+              <Area type="monotone" dataKey="ninjaBucks" stroke="hsl(var(--ninja-matrix))" fill="hsl(var(--ninja-matrix))" fillOpacity={0.3} />
             </AreaChart>
           </ResponsiveContainer>
         );
@@ -127,16 +127,30 @@ export const NinjaAnalytics = ({ users, onClose }: NinjaAnalyticsProps) => {
   const topNinja = chartData[0];
 
   return (
-    <div className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50 overflow-auto">
+    <div className="fixed inset-0 bg-background/95 backdrop-blur-sm z-50 overflow-auto">
+      {/* Matrix Rain Background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(15)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-px h-3 bg-gradient-to-b from-primary via-primary to-transparent animate-matrix-rain opacity-20"
+            style={{
+              left: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 4}s`,
+              animationDuration: `${4 + Math.random() * 2}s`
+            }}
+          />
+        ))}
+      </div>
       <div className="min-h-screen p-4">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto relative">
           {/* Header */}
           <div className="flex justify-between items-center mb-6">
             <div>
-              <h1 className="text-3xl font-bold bg-gradient-ninja bg-clip-text text-transparent">
-                Ninja Analytics Dashboard
+              <h1 className="text-3xl font-bold bg-gradient-matrix bg-clip-text text-transparent font-mono">
+                NINJA ANALYTICS MATRIX
               </h1>
-              <p className="text-muted-foreground">Track and analyze ninja performance</p>
+              <p className="text-muted-foreground font-mono">{'>'} Analyzing ninja performance data_</p>
             </div>
             <div className="flex gap-2">
               <Button
@@ -251,7 +265,7 @@ export const NinjaAnalytics = ({ users, onClose }: NinjaAnalyticsProps) => {
                         <p className="text-sm text-muted-foreground">{user.rank}</p>
                       </div>
                     </div>
-                    <Badge variant="outline" className="bg-ninja-gold text-ninja-dark">
+                    <Badge variant="outline" className="bg-ninja-matrix/20 text-ninja-matrix border-ninja-matrix/30">
                       {user.ninjaBucks} bucks
                     </Badge>
                   </div>
