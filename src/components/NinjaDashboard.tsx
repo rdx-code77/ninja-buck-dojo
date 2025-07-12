@@ -42,26 +42,26 @@ export const NinjaDashboard = ({ user, prizes, onLogout }: NinjaDashboardProps) 
 
       <div className="container mx-auto px-4 py-8 space-y-8">
         {/* Balance Card */}
-        <Card className="bg-gradient-card border-border shadow-ninja animate-bounce-in">
+        <Card className="bg-gradient-card border-primary/30 shadow-ninja">
           <CardHeader className="text-center">
-            <CardTitle className="text-2xl text-foreground flex items-center justify-center gap-2 animate-ninja-stealth" style={{animationDelay: '0.2s', animationFillMode: 'both'}}>
+            <CardTitle className="text-2xl text-foreground flex items-center justify-center gap-2">
               <Coins className="w-8 h-8 text-primary" />
               Your Ninja Bucks
             </CardTitle>
           </CardHeader>
           <CardContent className="text-center">
-            <div className="text-6xl font-bold text-primary mb-2 animate-bounce-gentle" 
-                 style={{animationDelay: '0.4s', animationFillMode: 'both', textShadow: '0 0 10px hsl(var(--ninja-purple) / 0.6)'}}>
+            <div className="text-6xl font-bold text-primary mb-2" 
+                 style={{textShadow: '0 0 10px hsl(var(--ninja-purple) / 0.6)'}}>
               {user.ninjaBucks}
             </div>
-            <p className="text-muted-foreground animate-fade-in-scale" style={{animationDelay: '0.6s', animationFillMode: 'both'}}>Keep coding to earn more!</p>
+            <p className="text-muted-foreground">Keep coding to earn more!</p>
           </CardContent>
         </Card>
 
         {/* Prizes Section */}
-        <div className="space-y-6 animate-slide-up" style={{animationDelay: '0.8s', animationFillMode: 'both'}}>
+        <div className="space-y-6">
           <div className="flex items-center gap-2">
-            <ShoppingBag className="w-6 h-6 text-primary animate-wiggle" />
+            <ShoppingBag className="w-6 h-6 text-primary" />
             <h2 className="text-2xl font-bold text-foreground">Ninja Store</h2>
           </div>
 
@@ -83,7 +83,7 @@ export const NinjaDashboard = ({ user, prizes, onLogout }: NinjaDashboardProps) 
                         key={prize.id} 
                         className={`transition-all duration-300 ${
                           affordable 
-                            ? 'bg-gradient-card border-border hover:shadow-gold hover:scale-105 cursor-pointer' 
+                            ? 'bg-gradient-card border-primary/30 hover:shadow-ninja hover:scale-105 cursor-pointer' 
                             : 'bg-muted border-border opacity-60'
                         }`}
                       >
@@ -94,7 +94,7 @@ export const NinjaDashboard = ({ user, prizes, onLogout }: NinjaDashboardProps) 
                             </CardTitle>
                             <Badge 
                               variant={affordable ? "default" : "secondary"}
-                              className={affordable ? "bg-ninja-gold text-ninja-dark" : ""}
+                              className={affordable ? "bg-primary text-primary-foreground" : ""}
                             >
                               <Coins className="w-3 h-3 mr-1" />
                               {prize.cost}
@@ -131,7 +131,7 @@ export const NinjaDashboard = ({ user, prizes, onLogout }: NinjaDashboardProps) 
         </div>
 
         {/* Motivation Section */}
-        <Card className="bg-gradient-ninja border-border text-white">
+        <Card className="bg-gradient-ninja border-primary/30 text-primary-foreground">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Trophy className="w-6 h-6" />
@@ -139,7 +139,7 @@ export const NinjaDashboard = ({ user, prizes, onLogout }: NinjaDashboardProps) 
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-white/90">
+            <p className="text-primary-foreground/90">
               Complete coding challenges, help classmates, and participate in activities to earn more Ninja Bucks!
             </p>
           </CardContent>
