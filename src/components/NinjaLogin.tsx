@@ -29,16 +29,17 @@ export const NinjaLogin = ({ onLogin, data }: NinjaLoginProps) => {
 
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
-      {/* Matrix Rain Background Effect */}
+      {/* Friendly floating elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(10)].map((_, i) => (
+        {[...Array(6)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-px h-2 bg-gradient-to-b from-primary via-primary to-transparent animate-matrix-rain opacity-40"
+            className="absolute w-3 h-3 bg-gradient-friendly rounded-full opacity-20 animate-gentle-float"
             style={{
               left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
               animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${3 + Math.random() * 2}s`
+              animationDuration: `${4 + Math.random() * 2}s`
             }}
           />
         ))}
@@ -47,29 +48,29 @@ export const NinjaLogin = ({ onLogin, data }: NinjaLoginProps) => {
       {/* Dashboard Button - Left Side */}
       <div className="absolute top-4 left-4 z-10">
         <Button 
-          variant="matrix" 
+          variant="friendly" 
           size="sm"
           onClick={() => setShowAnalytics(true)}
           className="backdrop-blur-sm"
         >
           <BarChart3 className="h-4 w-4 mr-2" />
-          Analytics Matrix
+          Analytics Hub
         </Button>
       </div>
 
       {/* Top Right Navigation */}
       <div className="absolute top-4 right-4 flex gap-2 z-10">
         <Button 
-          variant="stealth" 
+          variant="purple" 
           size="sm"
           onClick={() => setShowScoreboard(true)}
           className="backdrop-blur-sm"
         >
           <Trophy className="h-4 w-4 mr-2" />
-          Ninja Board
+          Leaderboard
         </Button>
         <Button 
-          variant="matrix" 
+          variant="blue" 
           size="sm"
           onClick={() => setShowGrindGuide(true)}
           className="backdrop-blur-sm"
@@ -88,27 +89,27 @@ export const NinjaLogin = ({ onLogin, data }: NinjaLoginProps) => {
               <img 
                 src={codeNinjasLogo} 
                 alt="Code Ninjas" 
-                className="h-32 w-auto animate-ninja-stealth hover:animate-pulse-glow transition-all duration-300"
-                style={{filter: 'drop-shadow(0 5px 15px hsl(var(--ninja-matrix) / 0.6)) hue-rotate(120deg)'}}
+                className="h-32 w-auto animate-gentle-float transition-all duration-300"
+                style={{filter: 'drop-shadow(0 5px 15px hsl(var(--ninja-purple) / 0.4))'}}
               />
             </div>
             <div className="space-y-2">
-              <h1 className="text-4xl font-bold text-primary animate-ninja-shadow-drop" 
-                  style={{textShadow: '0 0 20px hsl(var(--ninja-matrix) / 0.8)'}}>
-                Ninja Matrix
+              <h1 className="text-4xl font-bold text-primary animate-fade-in-scale" 
+                  style={{textShadow: '0 0 20px hsl(var(--ninja-purple) / 0.6)'}}>
+                Ninja Academy
               </h1>
-              <p className="text-muted-foreground text-lg animate-slide-up font-mono" style={{animationDelay: '0.3s', animationFillMode: 'both'}}>
-                Enter the digital dojo • Access your training data
+              <p className="text-muted-foreground text-lg animate-slide-up" style={{animationDelay: '0.3s', animationFillMode: 'both'}}>
+                Welcome to your coding journey! Let's check your progress
               </p>
             </div>
           </div>
 
           {/* Login Card */}
-          <Card className="bg-gradient-card border-primary/30 shadow-matrix backdrop-blur-sm animate-fade-in-scale" style={{animationDelay: '0.5s', animationFillMode: 'both'}}>
+          <Card className="bg-gradient-card border-primary/30 shadow-ninja backdrop-blur-sm animate-fade-in-scale" style={{animationDelay: '0.5s', animationFillMode: 'both'}}>
             <CardHeader className="text-center">
-              <CardTitle className="text-2xl text-foreground animate-slide-up font-mono" style={{animationDelay: '0.7s', animationFillMode: 'both'}}>NINJA AUTHENTICATION</CardTitle>
-              <CardDescription className="text-muted-foreground animate-slide-up font-mono" style={{animationDelay: '0.8s', animationFillMode: 'both'}}>
-                {'>'} Identify yourself to access the matrix_
+              <CardTitle className="text-2xl text-foreground animate-slide-up" style={{animationDelay: '0.7s', animationFillMode: 'both'}}>Enter Your Name</CardTitle>
+              <CardDescription className="text-muted-foreground animate-slide-up" style={{animationDelay: '0.8s', animationFillMode: 'both'}}>
+                Ready to see your ninja progress? Type your name below!
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -117,20 +118,20 @@ export const NinjaLogin = ({ onLogin, data }: NinjaLoginProps) => {
                   <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                   <Input
                     type="text"
-                    placeholder="Enter ninja identification..."
+                    placeholder="Enter your name..."
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="pl-10 bg-background/50 border-primary/30 text-foreground placeholder:text-muted-foreground focus:border-primary focus:shadow-matrix transition-all duration-300 hover:border-primary/50 font-mono"
+                    className="pl-10 bg-background/50 border-primary/30 text-foreground placeholder:text-muted-foreground focus:border-primary focus:shadow-ninja transition-all duration-300 hover:border-primary/50"
                     autoFocus
                   />
                 </div>
                 <Button 
                   type="submit" 
                   variant="ninja" 
-                  className="w-full font-mono tracking-wider"
+                  className="w-full"
                   disabled={!name.trim()}
                 >
-                  ACCESS NINJA MATRIX
+                  Let's Go, Ninja! 🥷
                 </Button>
               </form>
             </CardContent>
@@ -138,8 +139,8 @@ export const NinjaLogin = ({ onLogin, data }: NinjaLoginProps) => {
 
           {/* Decorative Elements */}
           <div className="text-center">
-            <p className="text-sm text-muted-foreground font-mono">
-              {'>'} SYSTEM.POWERED_BY("Code Ninjas Matrix Academy");
+            <p className="text-sm text-muted-foreground">
+              Powered by Code Ninjas Academy ✨
             </p>
           </div>
         </div>

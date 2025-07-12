@@ -8,68 +8,64 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Matrix Ninja Dark Theme */
-    --background: 0 0% 2%;
-    --foreground: 120 100% 85%;
+    /* Friendly Ninja Theme - Purple & Dark Blue */
+    --background: 240 15% 8%;
+    --foreground: 240 20% 95%;
 
-    --card: 0 0% 4%;
-    --card-foreground: 120 100% 85%;
+    --card: 240 12% 12%;
+    --card-foreground: 240 20% 95%;
 
-    --popover: 0 0% 4%;
-    --popover-foreground: 120 100% 85%;
+    --popover: 240 12% 12%;
+    --popover-foreground: 240 20% 95%;
 
-    --primary: 120 100% 50%;
-    --primary-foreground: 0 0% 2%;
+    --primary: 271 76% 53%;
+    --primary-foreground: 240 20% 95%;
 
-    --secondary: 0 0% 8%;
-    --secondary-foreground: 120 100% 85%;
+    --secondary: 220 30% 18%;
+    --secondary-foreground: 240 20% 95%;
 
-    --muted: 0 0% 8%;
-    --muted-foreground: 120 60% 60%;
+    --muted: 220 30% 18%;
+    --muted-foreground: 240 15% 65%;
 
-    --accent: 120 100% 40%;
-    --accent-foreground: 0 0% 2%;
+    --accent: 260 100% 70%;
+    --accent-foreground: 240 15% 8%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 120 100% 85%;
+    --destructive-foreground: 240 20% 95%;
 
-    --border: 120 100% 20%;
-    --input: 0 0% 8%;
-    --ring: 120 100% 50%;
+    --border: 220 30% 25%;
+    --input: 220 30% 18%;
+    --ring: 271 76% 53%;
 
-    /* Matrix Ninja Colors */
-    --ninja-matrix: 120 100% 50%;
-    --ninja-matrix-dark: 120 100% 25%;
-    --ninja-matrix-light: 120 100% 70%;
-    --ninja-shadow: 0 0% 2%;
-    --ninja-accent: 160 100% 40%;
+    /* Friendly Ninja Colors */
+    --ninja-purple: 271 76% 53%;
+    --ninja-blue: 220 80% 45%;
+    --ninja-light-purple: 280 70% 70%;
+    --ninja-dark-blue: 220 50% 20%;
+    --ninja-accent: 260 100% 70%;
     
-    /* Legacy color aliases for compatibility */
-    --ninja-gold: 120 100% 50%;
-    --ninja-purple: 120 100% 50%;
+    /* Friendly gradients */
+    --gradient-ninja: linear-gradient(135deg, hsl(271 76% 53%), hsl(220 80% 45%));
+    --gradient-friendly: linear-gradient(135deg, hsl(260 100% 70%), hsl(280 70% 70%));
+    --gradient-card: linear-gradient(145deg, hsl(240 12% 12%), hsl(220 30% 15%));
+    --gradient-subtle: linear-gradient(90deg, transparent, hsl(271 76% 53% / 0.2), transparent);
     
-    /* Matrix-style gradients */
-    --gradient-matrix: linear-gradient(135deg, hsl(120 100% 50%), hsl(160 100% 40%));
-    --gradient-ninja: linear-gradient(135deg, hsl(0 0% 2%), hsl(120 100% 25%));
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 4%), hsl(120 30% 8%));
-    --gradient-glow: linear-gradient(90deg, transparent, hsl(120 100% 50% / 0.4), transparent);
-    
-    /* Matrix shadows and glows */
-    --shadow-matrix: 0 0 20px hsl(120 100% 50% / 0.3);
-    --shadow-ninja: 0 5px 15px hsl(120 100% 25% / 0.4);
-    --shadow-elevated: 0 20px 40px hsl(0 0% 0% / 0.8);
-    --glow-matrix: 0 0 30px hsl(120 100% 50% / 0.6);
+    /* Soft shadows and glows */
+    --shadow-ninja: 0 8px 25px hsl(271 76% 53% / 0.25);
+    --shadow-friendly: 0 5px 15px hsl(260 100% 70% / 0.3);
+    --shadow-elevated: 0 15px 35px hsl(240 15% 8% / 0.6);
+    --glow-soft: 0 0 20px hsl(271 76% 53% / 0.4);
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 4%;
-    --sidebar-foreground: 120 100% 85%;
-    --sidebar-primary: 120 100% 50%;
-    --sidebar-primary-foreground: 0 0% 2%;
-    --sidebar-accent: 0 0% 8%;
-    --sidebar-accent-foreground: 120 100% 85%;
-    --sidebar-border: 120 100% 20%;
-    --sidebar-ring: 120 100% 50%;
+    --sidebar-background: 240 12% 12%;
+    --sidebar-foreground: 240 20% 95%;
+    --sidebar-primary: 271 76% 53%;
+    --sidebar-primary-foreground: 240 20% 95%;
+    --sidebar-accent: 220 30% 18%;
+    --sidebar-accent-foreground: 240 20% 95%;
+    --sidebar-border: 220 30% 25%;
+    --sidebar-ring: 271 76% 53%;
   }
 
   .dark {
@@ -117,33 +113,26 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
     background-image: 
-      radial-gradient(circle at 20% 50%, hsl(120 100% 50% / 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, hsl(160 100% 40% / 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 40% 80%, hsl(120 100% 25% / 0.1) 0%, transparent 50%);
+      radial-gradient(circle at 20% 50%, hsl(271 76% 53% / 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(220 80% 45% / 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, hsl(260 100% 70% / 0.05) 0%, transparent 50%);
   }
 }
 
-/* Matrix-style animations */
-@keyframes matrix-rain {
-  0% { transform: translateY(-100vh) rotateZ(0deg); opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { transform: translateY(100vh) rotateZ(360deg); opacity: 0; }
+/* Friendly animations */
+@keyframes gentle-float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
 }
 
-@keyframes ninja-stealth {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.3; transform: scale(1.05); }
+@keyframes gentle-glow {
+  0%, 100% { box-shadow: 0 0 5px hsl(var(--ninja-purple) / 0.3); }
+  50% { box-shadow: 0 0 15px hsl(var(--ninja-purple) / 0.5), 0 0 25px hsl(var(--ninja-accent) / 0.3); }
 }
 
-@keyframes ninja-shadow-drop {
-  0% { transform: translateY(-10px); opacity: 0; filter: drop-shadow(0 0 0 transparent); }
-  100% { transform: translateY(0); opacity: 1; filter: drop-shadow(0 5px 15px hsl(var(--ninja-matrix) / 0.4)); }
-}
-
-@keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 5px hsl(var(--ninja-matrix) / 0.3); }
-  50% { box-shadow: 0 0 20px hsl(var(--ninja-matrix) / 0.6), 0 0 30px hsl(var(--ninja-matrix) / 0.4); }
+@keyframes bounce-gentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
 }
 
 @keyframes slide-up {
@@ -152,21 +141,20 @@ All colors MUST be HSL.
 }
 
 @keyframes fade-in-scale {
-  0% { transform: scale(0.9); opacity: 0; }
+  0% { transform: scale(0.95); opacity: 0; }
   100% { transform: scale(1); opacity: 1; }
 }
 
-.animate-matrix-rain { animation: matrix-rain 3s linear infinite; }
-.animate-ninja-stealth { animation: ninja-stealth 2s ease-in-out infinite; }
-.animate-ninja-shadow-drop { animation: ninja-shadow-drop 0.6s ease-out forwards; }
-.animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+.animate-gentle-float { animation: gentle-float 3s ease-in-out infinite; }
+.animate-gentle-glow { animation: gentle-glow 2s ease-in-out infinite; }
+.animate-bounce-gentle { animation: bounce-gentle 1s ease-in-out infinite; }
 .animate-slide-up { animation: slide-up 0.5s ease-out forwards; }
 .animate-fade-in-scale { animation: fade-in-scale 0.4s ease-out forwards; }
 
-/* Utility classes for matrix theme */
-.bg-gradient-matrix { background: var(--gradient-matrix); }
+/* Utility classes for friendly theme */
 .bg-gradient-ninja { background: var(--gradient-ninja); }
+.bg-gradient-friendly { background: var(--gradient-friendly); }
 .bg-gradient-card { background: var(--gradient-card); }
-.shadow-matrix { box-shadow: var(--shadow-matrix); }
 .shadow-ninja { box-shadow: var(--shadow-ninja); }
-.glow-matrix { box-shadow: var(--glow-matrix); }
+.shadow-friendly { box-shadow: var(--shadow-friendly); }
+.glow-soft { box-shadow: var(--glow-soft); }

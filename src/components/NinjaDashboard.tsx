@@ -50,8 +50,8 @@ export const NinjaDashboard = ({ user, prizes, onLogout }: NinjaDashboardProps) 
             </CardTitle>
           </CardHeader>
           <CardContent className="text-center">
-            <div className="text-6xl font-bold text-primary mb-2 animate-fade-in-scale" 
-                 style={{animationDelay: '0.4s', animationFillMode: 'both', textShadow: '0 0 10px hsl(var(--ninja-matrix) / 0.8)'}}>
+            <div className="text-6xl font-bold text-primary mb-2 animate-bounce-gentle" 
+                 style={{animationDelay: '0.4s', animationFillMode: 'both', textShadow: '0 0 10px hsl(var(--ninja-purple) / 0.6)'}}>
               {user.ninjaBucks}
             </div>
             <p className="text-muted-foreground animate-fade-in-scale" style={{animationDelay: '0.6s', animationFillMode: 'both'}}>Keep coding to earn more!</p>
@@ -107,7 +107,7 @@ export const NinjaDashboard = ({ user, prizes, onLogout }: NinjaDashboardProps) 
                           </CardDescription>
                           <div className="mt-4">
                             <Button 
-                              variant={affordable ? "gold" : "disabled"}
+                              variant={affordable ? "friendly" : "disabled"}
                               size="sm"
                               className="w-full"
                               disabled={!affordable}
