@@ -93,7 +93,7 @@ export const NinjaLogin = ({ onLogin, data }: NinjaLoginProps) => {
               />
             </div>
             <div className="space-y-2">
-              <h1 className="text-4xl font-bold bg-gradient-matrix bg-clip-text text-transparent animate-ninja-shadow-drop" 
+              <h1 className="text-4xl font-bold text-primary animate-ninja-shadow-drop" 
                   style={{textShadow: '0 0 20px hsl(var(--ninja-matrix) / 0.8)'}}>
                 Ninja Matrix
               </h1>

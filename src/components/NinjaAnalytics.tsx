@@ -147,7 +147,7 @@ export const NinjaAnalytics = ({ users, onClose }: NinjaAnalyticsProps) => {
           {/* Header */}
           <div className="flex justify-between items-center mb-6">
             <div>
-              <h1 className="text-3xl font-bold bg-gradient-matrix bg-clip-text text-transparent font-mono">
+              <h1 className="text-3xl font-bold text-primary font-mono">
                 NINJA ANALYTICS MATRIX
               </h1>
               <p className="text-muted-foreground font-mono">{'>'} Analyzing ninja performance data_</p>

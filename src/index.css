@@ -44,6 +44,10 @@ All colors MUST be HSL.
     --ninja-shadow: 0 0% 2%;
     --ninja-accent: 160 100% 40%;
     
+    /* Legacy color aliases for compatibility */
+    --ninja-gold: 120 100% 50%;
+    --ninja-purple: 120 100% 50%;
+    
     /* Matrix-style gradients */
     --gradient-matrix: linear-gradient(135deg, hsl(120 100% 50%), hsl(160 100% 40%));
     --gradient-ninja: linear-gradient(135deg, hsl(0 0% 2%), hsl(120 100% 25%));

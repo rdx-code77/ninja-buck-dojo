@@ -23,7 +23,7 @@ export const NinjaDashboard = ({ user, prizes, onLogout }: NinjaDashboardProps) 
           <div className="flex justify-between items-center">
             <div className="space-y-1">
               <h1 className="text-3xl font-bold text-foreground">
-                Welcome back, <span className="bg-gradient-ninja bg-clip-text text-transparent">{user.name}</span>!
+                Welcome back, <span className="text-primary">{user.name}</span>!
               </h1>
               {user.rank && (
                 <Badge variant="secondary" className="bg-primary text-primary-foreground">
@@ -45,13 +45,13 @@ export const NinjaDashboard = ({ user, prizes, onLogout }: NinjaDashboardProps) 
         <Card className="bg-gradient-card border-border shadow-ninja animate-bounce-in">
           <CardHeader className="text-center">
             <CardTitle className="text-2xl text-foreground flex items-center justify-center gap-2 animate-ninja-stealth" style={{animationDelay: '0.2s', animationFillMode: 'both'}}>
-              <Coins className="w-8 h-8 text-ninja-gold animate-coin-spin hover:animate-ninja-glow" style={{filter: 'drop-shadow(0 0 8px hsl(var(--ninja-gold) / 0.6))'}} />
+              <Coins className="w-8 h-8 text-primary" />
               Your Ninja Bucks
             </CardTitle>
           </CardHeader>
           <CardContent className="text-center">
-            <div className="text-6xl font-bold bg-gradient-gold bg-clip-text text-transparent mb-2 animate-ninja-shuriken-spin" 
-                 style={{animationDelay: '0.4s', animationFillMode: 'both', filter: 'drop-shadow(0 0 10px hsl(var(--ninja-gold) / 0.8))'}}>
+            <div className="text-6xl font-bold text-primary mb-2 animate-fade-in-scale" 
+                 style={{animationDelay: '0.4s', animationFillMode: 'both', textShadow: '0 0 10px hsl(var(--ninja-matrix) / 0.8)'}}>
               {user.ninjaBucks}
             </div>
             <p className="text-muted-foreground animate-fade-in-scale" style={{animationDelay: '0.6s', animationFillMode: 'both'}}>Keep coding to earn more!</p>
