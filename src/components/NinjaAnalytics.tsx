@@ -4,7 +4,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { NinjaUser } from "@/types/ninja";
-import { BarChart3, PieChart as PieChartIcon, TrendingUp, Radar as RadarIcon, Activity, X } from "lucide-react";
+import { BarChart3, PieChart as PieChartIcon, TrendingUp, Radar as RadarIcon, Activity, X, Sun, Moon } from "lucide-react";
+import { useTheme } from "next-themes";
 
 interface NinjaAnalyticsProps {
   users: NinjaUser[];
@@ -15,6 +16,7 @@ const COLORS = ['hsl(var(--ninja-gold))', 'hsl(var(--primary))', 'hsl(var(--acce
 
 export const NinjaAnalytics = ({ users, onClose }: NinjaAnalyticsProps) => {
   const [activeChart, setActiveChart] = useState<'bar' | 'pie' | 'line' | 'radar' | 'area'>('bar');
+  const { theme, setTheme } = useTheme();
 
   // Prepare data for charts
   const chartData = users.map((user, index) => ({
@@ -136,10 +138,20 @@ export const NinjaAnalytics = ({ users, onClose }: NinjaAnalyticsProps) => {
               </h1>
               <p className="text-muted-foreground">Track and analyze ninja performance</p>
             </div>
-            <Button variant="outline" onClick={onClose}>
-              <X className="w-4 h-4 mr-2" />
-              Close Dashboard
-            </Button>
+            <div className="flex gap-2">
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className="hover:bg-accent hover:text-accent-foreground"
+              >
+                {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+              </Button>
+              <Button variant="outline" onClick={onClose}>
+                <X className="w-4 h-4 mr-2" />
+                Close Dashboard
+              </Button>
+            </div>
           </div>
 
           {/* Stats Cards */}
